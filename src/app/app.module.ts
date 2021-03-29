@@ -6,29 +6,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoppingReducer } from './store/reducers/shopping.reducer';
-import { ItemAddComponent } from './item-add/item-add.component';
-import { ItemListComponent } from './item-list/item-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ShoppingEffects } from './store/effects/shopping.effects';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ItemAddComponent,
-    ItemListComponent
+    AppComponent,HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    StoreModule.forRoot({
-      shopping:ShoppingReducer
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ShoppingEffects]),
+    HttpClientModule,    
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),    
   ],
   providers: [],
   bootstrap: [AppComponent]
